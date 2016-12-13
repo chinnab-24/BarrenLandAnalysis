@@ -1,0 +1,132 @@
+package test;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import code.BarrenLandService;
+
+/**
+ * This is the main Test class where the test cases are automated. 
+ */
+public class TestBarrenLand {
+
+	BarrenLandService test;
+
+	@Test
+	public void testEmptyInput() throws Exception {
+
+		test = new BarrenLandService();
+		String result = ("240000");		
+		String input = new String("{“”}");
+
+		test.parseInput(input);
+		test.clearLand();
+		test.markBarrenLandInspected();
+		test.getFertileLands();
+		test.returnOutput();
+
+		System.out.println("Input : {\"\"}, Output: "+ test.returnOutput());
+		assertEquals(result,test.returnOutput());
+	}
+
+	@Test
+	public void testZeroInput() throws Exception {
+
+		test = new BarrenLandService();
+		String result = ("239999");		
+		String input = new String("{“0 0 0 0”}");
+
+		test.parseInput(input);
+		test.clearLand();
+		test.markBarrenLandInspected();
+		test.getFertileLands();
+		test.returnOutput();
+
+		System.out.println("Input : {\"0 0 0 0\"}, Output: "+ test.returnOutput());
+		assertEquals(result,test.returnOutput());
+	}
+
+	@Test
+	public void testEmptyOutput() throws Exception {
+
+		test = new BarrenLandService();
+		String result = ("");		
+		String input = new String("{“0 0 399 599”}");
+
+		test.parseInput(input);
+		test.clearLand();
+		test.markBarrenLandInspected();
+		test.getFertileLands();
+		test.returnOutput();
+
+		System.out.println("Input : {\"0 0 399 599\"}, Output: "+ test.returnOutput());
+		assertEquals(result,test.returnOutput());
+	}
+
+	@Test
+	public void testString1() throws Exception {
+
+		test = new BarrenLandService();
+		String result = ("116800 116800");		
+		String input = new String("{“0 292 399 307”}");
+
+		test.parseInput(input);
+		test.clearLand();
+		test.markBarrenLandInspected();
+		test.getFertileLands();
+		test.returnOutput();
+
+		System.out.println("Input : {\"0 292 399 307\"}, Output: "+ test.returnOutput());
+		assertEquals(result,test.returnOutput());		
+	}
+
+	@Test
+	public void testString2() throws Exception {
+
+		test = new BarrenLandService();
+		String result = ("22816 192608");	
+		String input = new String("{“48 192 351 207”, “48 392 351 407”, “120 52 135 547”, “260 52 275 547”}");
+
+		test.parseInput(input);
+		test.clearLand();
+		test.markBarrenLandInspected();
+		test.getFertileLands();
+		test.returnOutput();
+
+		System.out.println("Input : {\"48 192 351 207\", \"48 392 351 407\", \"120 52 135 547\", \"260 52 275 547\"}, Output: "+test.returnOutput());
+		assertEquals(result,test.returnOutput());
+	}
+
+	@Test (expected = Exception.class)
+	public void testError() throws Exception {
+
+		System.out.println("Running errored string input and expecting an exception ");
+		test = new BarrenLandService();
+		String input = new String("Error");
+
+		test.parseInput(input);
+	}
+
+	@Test (expected = ArrayIndexOutOfBoundsException.class)
+	public void testErrorArrayOutofBounds() throws Exception {
+
+		System.out.println("Running errored coordinates input and expecting an exception ");
+		test = new BarrenLandService();
+		String input = new String("{699 699 699 699}");
+
+		test.parseInput(input);
+		test.clearLand();
+		test.markBarrenLandInspected();
+	}
+	@Test
+	public void testSTDIN() throws Exception {
+
+		test = new BarrenLandService();		
+		test.readInput();
+		test.clearLand();
+		test.markBarrenLandInspected();
+		test.getFertileLands();
+		System.out.println(test.returnOutput());
+	}
+}

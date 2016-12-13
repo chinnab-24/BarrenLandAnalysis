@@ -1,0 +1,23 @@
+package test;
+
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+/**
+ * This is class is to run the automated test cases from Test class
+ * If there are any failed test cases, the details will be printed to the console
+ */
+public class BarrenLandTestRunner {
+
+	public static void main(String[] args) {
+
+		Result result = JUnitCore.runClasses(TestBarrenLand.class);
+		for (Failure failure : result.getFailures()) {
+			System.out.println("Test failed: " + failure.toString());
+		}
+
+		System.out.println("Are all tests successfull? " + result.wasSuccessful());
+	}
+
+}
