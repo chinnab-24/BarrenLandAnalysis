@@ -17,18 +17,27 @@ JUnit 4.10
 
 Prerequisites:
 1. Install Java (Version 1.8.0_112 is used)
+2. Download code from GIT repository into C drive (C:\BarrenLandAnalysis)
 
 Getting Started:
 
+To run the program from command prompt
+1. Open command prompt
+2. Type the following commands
+	a. cd C:\BarrenLandAnalysis
+	b. java -jar runMe.jar
+3. Give the input to test the output. 
+4. Repeat the command : "java -jar runMe.jar" to test the application multiple times
+
 To run the program from eclipse
-1. Open eclipse and point the workspace to C:\BarrenLandAnalysis
+1. Open eclipse and point the workspace to C:\BarrenLandAnalysis\BarrenLandAnalysis
 2. Open BarrenLandAnalysis.java, right click and select "run as: java application" option 
 3. Enter the required input to test the output.
 
 Running the tests:
 
 To run the automated unit test cases
-1. Open eclipse and point the workspace to C:\BarrenLandAnalysis
+1. Open eclipse and point the workspace to C:\BarrenLandAnalysis\BarrenLandAnalysis
 2. Open BarrenLandTestRunner.java, right click and select "run as: java application" option  
 3. Alternatively, if you want to see the tests in JUnit view, Open TestBarrenLand.java, right click and select "run as: java JUnit Test" option 
 
