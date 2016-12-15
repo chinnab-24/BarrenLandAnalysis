@@ -39,7 +39,7 @@ public class BarrenLandService{
 		String[] parts = input.split(",");
 		for(String s:parts){
 			s = s.replace("\"", "");
-			s = s.replaceAll("ì|î", "");
+			s = s.replaceAll("‚Äú|‚Äù", "");
 			s = s.replaceAll("\\{|\\}", "");
 			s = s.replaceAll("^ ", "");
 
@@ -83,7 +83,7 @@ public class BarrenLandService{
 	// Traverse through the land and add all the connected unmarked points to get fertile land area. 
 	// Once the queue is empty, check for a new fertile land if any and repeat the area calculation
 	public void getFertileLands(){
-		int fertLandCount = 1;
+		int fertLandCount = 0;
 		int i = 0;
 		int j = 0;
 
