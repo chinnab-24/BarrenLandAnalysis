@@ -92,7 +92,7 @@ public class BarrenLandService{
 			if(pointsToBeInspected.isEmpty()) {
 				Integer point[] = {i, j};
 
-				// If node[i][j] has not been visited add to queue
+				// If point[i][j] has not been visited add to queue
 				// As the queue was empty, this is a new fertile land
 				if(!isInspected[i][j]) {		  
 					fertLandCount++;
